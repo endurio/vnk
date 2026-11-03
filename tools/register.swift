@@ -13,7 +13,7 @@ func isEnabled(_ src: TISInputSource) -> Bool {
 
 // Right after registering, macOS may still be indexing the bundle and can
 // report success without actually enabling it, so check and retry.
-let filter = [kTISPropertyBundleID as String: "com.endurio.inputmethod.VNK"] as CFDictionary
+let filter = [kTISPropertyBundleID as String: "io.endur.inputmethod.vnk"] as CFDictionary
 for _ in 0..<10 {
     let sources = (TISCreateInputSourceList(filter, true)?.takeRetainedValue() as? [TISInputSource]) ?? []
     for src in sources where !isEnabled(src) { TISEnableInputSource(src) }

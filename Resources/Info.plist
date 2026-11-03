@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>VNK</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.endurio.inputmethod.VNK</string>
+	<string>io.endur.inputmethod.vnk</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -22,7 +22,7 @@
 	<dict>
 		<key>tsInputModeListKey</key>
 		<dict>
-			<key>com.endurio.inputmethod.VNK.Telex</key>
+			<key>io.endur.inputmethod.vnk.Telex</key>
 			<dict>
 				<key>TISIconIsTemplate</key>
 				<true/>
@@ -32,7 +32,7 @@
 					<string>V</string>
 				</dict>
 				<key>TISInputSourceID</key>
-				<string>com.endurio.inputmethod.VNK.Telex</string>
+				<string>io.endur.inputmethod.vnk.Telex</string>
 				<key>TISIntendedLanguage</key>
 				<string>vi</string>
 				<key>tsInputModeDefaultStateKey</key>
@@ -51,11 +51,11 @@
 		</dict>
 		<key>tsVisibleInputModeOrderedArrayKey</key>
 		<array>
-			<string>com.endurio.inputmethod.VNK.Telex</string>
+			<string>io.endur.inputmethod.vnk.Telex</string>
 		</array>
 	</dict>
 	<key>InputMethodConnectionName</key>
-	<string>com.endurio.inputmethod.VNK_Connection</string>
+	<string>io.endur.inputmethod.vnk_Connection</string>
 	<key>InputMethodServerControllerClass</key>
 	<string>VNKInputController</string>
 	<key>LSBackgroundOnly</key>
@@ -72,7 +72,7 @@
 		<string>V</string>
 	</dict>
 	<key>TISInputSourceID</key>
-	<string>com.endurio.inputmethod.VNK</string>
+	<string>io.endur.inputmethod.vnk</string>
 	<key>TISIntendedLanguage</key>
 	<string>vi</string>
 	<key>tsInputMethodCharacterRepertoireKey</key>
