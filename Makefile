@@ -9,16 +9,16 @@ SOURCES  := Sources/TelexEngine.swift Sources/InputController.swift Sources/main
 
 all: $(BUNDLE)
 
-$(BUNDLE): $(SOURCES) Resources/Info.plist Resources/en.lproj/InfoPlist.strings $(BUILD)/vn.tiff
+$(BUNDLE): $(SOURCES) Resources/Info.plist Resources/en.lproj/InfoPlist.strings $(BUILD)/v.tiff
 	rm -rf $(BUNDLE)
 	mkdir -p $(BUNDLE)/Contents/MacOS $(BUNDLE)/Contents/Resources
 	$(SWIFTC) -O $(SOURCES) -o $(BUNDLE)/Contents/MacOS/VNK
 	cp Resources/Info.plist $(BUNDLE)/Contents/
 	cp -R Resources/en.lproj $(BUNDLE)/Contents/Resources/
-	cp $(BUILD)/vn.tiff $(BUNDLE)/Contents/Resources/vn.tiff
+	cp $(BUILD)/v.tiff $(BUNDLE)/Contents/Resources/v.tiff
 	codesign --force --sign - $(BUNDLE)
 
-$(BUILD)/vn.tiff: tools/make-icon.swift
+$(BUILD)/v.tiff: tools/make-icon.swift
 	mkdir -p $(BUILD)
 	$(SWIFTC) tools/make-icon.swift -o $(BUILD)/make-icon
 	$(BUILD)/make-icon $@

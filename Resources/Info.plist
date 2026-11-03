@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>4</string>
 	<key>ComponentInputModeDict</key>
 	<dict>
 		<key>tsInputModeListKey</key>
@@ -29,7 +29,7 @@
 				<key>TISIconLabels</key>
 				<dict>
 					<key>Primary</key>
-					<string>VN</string>
+					<string>V</string>
 				</dict>
 				<key>TISInputSourceID</key>
 				<string>com.endurio.inputmethod.VNK.Telex</string>
@@ -40,9 +40,9 @@
 				<key>tsInputModeIsVisibleKey</key>
 				<true/>
 				<key>tsInputModeMenuIconFileKey</key>
-				<string>vn.tiff</string>
+				<string>v.tiff</string>
 				<key>tsInputModePaletteIconFileKey</key>
-				<string>vn.tiff</string>
+				<string>v.tiff</string>
 				<key>tsInputModePrimaryInScriptKey</key>
 				<true/>
 				<key>tsInputModeScriptKey</key>
@@ -69,7 +69,7 @@
 	<key>TISIconLabels</key>
 	<dict>
 		<key>Primary</key>
-		<string>VN</string>
+		<string>V</string>
 	</dict>
 	<key>TISInputSourceID</key>
 	<string>com.endurio.inputmethod.VNK</string>
@@ -80,6 +80,6 @@
 		<string>Latn</string>
 	</array>
 	<key>tsInputMethodIconFileKey</key>
-	<string>vn.tiff</string>
+	<string>v.tiff</string>
 </dict>
 </plist>

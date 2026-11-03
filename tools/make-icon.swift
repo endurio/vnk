@@ -1,4 +1,5 @@
-// Renders the menu-bar icon: a rounded square with "VN" knocked out.
+// Renders the menu-bar icon: an outlined rounded square with "V" inside,
+// in the same style as the system input source icons.
 import AppKit
 
 func rep(_ px: Int) -> NSBitmapImageRep {
@@ -8,18 +9,18 @@ func rep(_ px: Int) -> NSBitmapImageRep {
                              bytesPerRow: 0, bitsPerPixel: 0)!
     r.size = NSSize(width: 16, height: 16)
     NSGraphicsContext.saveGraphicsState()
-    let ctx = NSGraphicsContext(bitmapImageRep: r)!
-    NSGraphicsContext.current = ctx
-    NSColor.black.setFill()
-    NSBezierPath(roundedRect: NSRect(x: 0.5, y: 1.5, width: 15, height: 13), xRadius: 3, yRadius: 3).fill()
-    ctx.compositingOperation = .destinationOut
+    NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: r)
+    NSColor.black.set()
+    let box = NSBezierPath(roundedRect: NSRect(x: 1, y: 2, width: 14, height: 12), xRadius: 3, yRadius: 3)
+    box.lineWidth = 1.1
+    box.stroke()
     let attrs: [NSAttributedString.Key: Any] = [
-        .font: NSFont.systemFont(ofSize: 8.5, weight: .heavy),
+        .font: NSFont.systemFont(ofSize: 9.5, weight: .semibold),
         .foregroundColor: NSColor.black,
     ]
-    let s = "VN" as NSString
+    let s = "V" as NSString
     let size = s.size(withAttributes: attrs)
-    s.draw(at: NSPoint(x: (16 - size.width) / 2, y: (16 - size.height) / 2 + 0.5), withAttributes: attrs)
+    s.draw(at: NSPoint(x: (16 - size.width) / 2, y: (16 - size.height) / 2 + 0.25), withAttributes: attrs)
     NSGraphicsContext.restoreGraphicsState()
     return r
 }
