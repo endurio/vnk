@@ -17,7 +17,43 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
+	<key>ComponentInputModeDict</key>
+	<dict>
+		<key>tsInputModeListKey</key>
+		<dict>
+			<key>com.endurio.inputmethod.VNK.Telex</key>
+			<dict>
+				<key>TISIconIsTemplate</key>
+				<true/>
+				<key>TISIconLabels</key>
+				<dict>
+					<key>Primary</key>
+					<string>VN</string>
+				</dict>
+				<key>TISInputSourceID</key>
+				<string>com.endurio.inputmethod.VNK.Telex</string>
+				<key>TISIntendedLanguage</key>
+				<string>vi</string>
+				<key>tsInputModeDefaultStateKey</key>
+				<true/>
+				<key>tsInputModeIsVisibleKey</key>
+				<true/>
+				<key>tsInputModeMenuIconFileKey</key>
+				<string>vn.tiff</string>
+				<key>tsInputModePaletteIconFileKey</key>
+				<string>vn.tiff</string>
+				<key>tsInputModePrimaryInScriptKey</key>
+				<true/>
+				<key>tsInputModeScriptKey</key>
+				<string>smRoman</string>
+			</dict>
+		</dict>
+		<key>tsVisibleInputModeOrderedArrayKey</key>
+		<array>
+			<string>com.endurio.inputmethod.VNK.Telex</string>
+		</array>
+	</dict>
 	<key>InputMethodConnectionName</key>
 	<string>com.endurio.inputmethod.VNK_Connection</string>
 	<key>InputMethodServerControllerClass</key>
@@ -30,6 +66,11 @@
 	<string>NSApplication</string>
 	<key>TISIconIsTemplate</key>
 	<true/>
+	<key>TISIconLabels</key>
+	<dict>
+		<key>Primary</key>
+		<string>VN</string>
+	</dict>
 	<key>TISInputSourceID</key>
 	<string>com.endurio.inputmethod.VNK</string>
 	<key>TISIntendedLanguage</key>
