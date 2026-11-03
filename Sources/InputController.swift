@@ -1,5 +1,7 @@
 import Cocoa
 import InputMethodKit
+import Carbon
+import IOKit
 
 // One instance per client text field. The name must match
 // InputMethodServerControllerClass in Info.plist.
@@ -15,6 +17,11 @@ class VNKInputController: IMKInputController {
     override func handle(_ event: NSEvent!, client sender: Any!) -> Bool {
         guard let event = event, event.type == .keyDown,
               let client = sender as? IMKTextInput else { return false }
+
+        if isSecureField(client) {
+            commit(client)
+            return false
+        }
 
         let mods = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
         if !mods.intersection([.command, .control, .option]).isEmpty {
@@ -58,6 +65,31 @@ class VNKInputController: IMKInputController {
     override func deactivateServer(_ sender: Any!) {
         if let client = sender as? IMKTextInput { commit(client) }
         super.deactivateServer(sender)
+    }
+
+    // MARK: - Password fields
+
+    /// Password fields turn on secure event input while focused. The flag is
+    /// global, so a background app (or one that forgot to turn it off) could
+    /// hold it too; only treat the field as secure when the app holding it is
+    /// the one we're typing into.
+    private func isSecureField(_ client: IMKTextInput) -> Bool {
+        guard IsSecureEventInputEnabled() else { return false }
+        guard let owner = VNKInputController.secureInputPID() else { return true }
+        let ownerBundle = NSRunningApplication(processIdentifier: owner)?.bundleIdentifier
+        return ownerBundle != nil && ownerBundle == client.bundleIdentifier()
+    }
+
+    private static func secureInputPID() -> pid_t? {
+        let root = IORegistryGetRootEntry(kIOMainPortDefault)
+        defer { IOObjectRelease(root) }
+        guard let users = IORegistryEntryCreateCFProperty(root, "IOConsoleUsers" as CFString,
+                                                          kCFAllocatorDefault, 0)?
+                .takeRetainedValue() as? [[String: Any]] else { return nil }
+        for user in users {
+            if let pid = user["kCGSSessionSecureInputPID"] as? Int { return pid_t(pid) }
+        }
+        return nil
     }
 
     // MARK: -
